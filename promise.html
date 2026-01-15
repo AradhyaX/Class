@@ -8,8 +8,15 @@
 
 <body>
   <script>
-    let promise1 = Promise.reject("data not found")
-    promise1.then(() => console.log("good"))
+    // let promise1 = Promise.reject("data not found")
+    // promise1.then(() => console.log("good"))
+    //   .catch((err) => console.log(err))
+    //   .finally(() => console.log("finally"))
+
+    let p1 = Promise.resolve("data found");
+    let p2 = Promise.reject("data not found");
+    let p3 = Promise.reject("data 2 found");
+    Promise.all([p1, p2, p3]).then((res) => console.log(res))
       .catch((err) => console.log(err))
       .finally(() => console.log("finally"))
   </script>
